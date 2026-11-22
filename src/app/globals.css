@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #fff7f8;
+  --color-blush: #fde4e8;
+  --color-rose-brand: #ff3355;
+  /* Accessible text and button colour: 5.96:1 contrast on cream. */
+  --color-rose-ink: #be123c;
+  --color-rose-ink-dark: #9f1239;
+  --color-cocoa: #3b1d2a;
+  --color-cocoa-soft: #6b4a57;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-cream font-sans text-cocoa antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-rose-ink;
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-rose-ink px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-rose-ink-dark disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-rose-ink px-6 py-3 text-sm font-semibold text-rose-ink transition-colors hover:bg-blush;
+}
