@@ -17,9 +17,9 @@ test("customer can browse, add to cart and prepare a WhatsApp order", async ({ p
   await page.getByLabel("Quantity").selectOption("2");
   await page.getByRole("button", { name: "Add to cart" }).click();
   await expect(page.getByRole("status")).toContainText("Added 2 Red Velvet Cake");
-  await expect(page.getByRole("link", { name: "Cart, 2 items" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Cart 2 items" })).toBeVisible();
 
-  await page.getByRole("link", { name: "Cart, 2 items" }).click();
+  await page.getByRole("link", { name: "Cart 2 items" }).click();
   await expect(page.getByTestId("cart-subtotal")).toHaveText(/LKR\s13,000\.00/);
 
   const order = page.getByRole("link", { name: /Send order on WhatsApp/ });
