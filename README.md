@@ -3,10 +3,11 @@
 **A headless WooCommerce storefront for a Colombo bakery, built with Next.js, TypeScript and GraphQL.**
 
 [![CI](https://github.com/Shani67/Sweet-Delights/actions/workflows/ci.yml/badge.svg)](https://github.com/Shani67/Sweet-Delights/actions/workflows/ci.yml)
+[![Live demo](https://img.shields.io/badge/demo-live-be123c)](https://sweet-delights-flame.vercel.app/)
 
 WordPress and WooCommerce stay where editors are comfortable: managing products, prices and stock. Customers get a fast, statically generated Next.js storefront that reads the catalog over WPGraphQL, refreshes itself when products change, and passes automated WCAG 2.2 AA checks.
 
-> **Live demo:** _add your Vercel URL here_ · Runs on built-in demo data, no backend needed.
+**[🍰 View the live demo](https://sweet-delights-flame.vercel.app/)** · Deployed on Vercel. The demo runs on the built-in catalog, so no WordPress server is needed to try it.
 
 | Home                                     | Product                                        | Cart                                |
 | ---------------------------------------- | ---------------------------------------------- | ----------------------------------- |
