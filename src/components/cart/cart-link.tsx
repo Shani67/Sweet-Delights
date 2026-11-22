@@ -11,7 +11,7 @@ export function CartLink() {
   return (
     <Link
       href="/cart"
-      className="inline-flex items-center gap-2 rounded-full bg-rose-ink px-4 py-2 text-sm font-semibold text-white hover:bg-rose-ink-dark"
+      className="inline-flex items-center gap-2 rounded-full bg-rose-ink px-3 py-2 sm:px-4 text-sm font-semibold text-white hover:bg-rose-ink-dark"
     >
       Cart
       <span className="grid h-5 min-w-5 place-items-center rounded-full bg-white px-1 text-xs text-rose-ink">
