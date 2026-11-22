@@ -2,13 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ProductGrid } from "@/components/product/product-grid";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getCategories, getFeaturedProducts } from "@/lib/catalog";
+import { bakerySchema } from "@/lib/structured-data";
 
 export default async function HomePage() {
   const [featured, categories] = await Promise.all([getFeaturedProducts(), getCategories()]);
 
   return (
     <>
+      <JsonLd data={bakerySchema()} />
       <section className="container-page grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
         <div className="space-y-6">
           <p className="text-sm font-semibold tracking-widest text-rose-ink uppercase">

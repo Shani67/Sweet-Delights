@@ -4,8 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { AddToCart } from "@/components/cart/add-to-cart";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getProductBySlug, getProducts } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
+import { breadcrumbSchema, productSchema } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -34,6 +36,14 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <div className="container-page py-12">
+      <JsonLd data={productSchema(product)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Shop", path: "/shop" },
+          ...(category ? [{ name: category.name, path: `/shop/${category.slug}` }] : []),
+          { name: product.name, path: `/products/${product.slug}` },
+        ])}
+      />
       <nav aria-label="Breadcrumb" className="mb-8 text-sm">
         <ol className="flex flex-wrap gap-2 text-cocoa-soft">
           <li>
