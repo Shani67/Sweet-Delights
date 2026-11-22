@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 
+import { CartProvider } from "@/components/cart/cart-provider";
 import { DemoBanner } from "@/components/demo-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -34,18 +35,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <a
-          href="#main-content"
-          className="sr-only z-50 rounded-full bg-rose-ink px-4 py-2 text-white focus:not-sr-only focus:absolute focus:top-3 focus:left-3"
-        >
-          Skip to main content
-        </a>
-        <DemoBanner />
-        <SiteHeader />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <CartProvider>
+          <a
+            href="#main-content"
+            className="sr-only z-50 rounded-full bg-rose-ink px-4 py-2 text-white focus:not-sr-only focus:absolute focus:top-3 focus:left-3"
+          >
+            Skip to main content
+          </a>
+          <DemoBanner />
+          <SiteHeader />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </CartProvider>
       </body>
     </html>
   );

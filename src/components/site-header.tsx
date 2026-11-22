@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CartLink } from "@/components/cart/cart-link";
+
 const navigation = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
@@ -26,6 +28,9 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
+            <li>
+              <CartLink />
+            </li>
           </ul>
         </nav>
       </div>

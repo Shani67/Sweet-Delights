@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AddToCart } from "@/components/cart/add-to-cart";
 import { getProductBySlug, getProducts } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 
@@ -71,7 +72,7 @@ export default async function ProductPage({ params }: Props) {
           <p className="text-2xl font-semibold text-rose-ink">
             {formatPrice(product.price, product.currency)}
           </p>
-          <p className="text-sm font-medium">{product.inStock ? "In stock" : "Sold out"}</p>
+          <AddToCart product={product} />
           <div className="space-y-4 text-cocoa-soft">
             {product.description.split("\n\n").map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
